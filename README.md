@@ -2,6 +2,6 @@
 :v: Stack my algorithm skill!!
 
 
-Link: [Google][googlelink]
+Link: [Code][googlelink]
 
-[googlelink]: https://google.com "Go google"
+[googlelink]: https://github.com/Blackraven93/Algorithm/blob/master/Programmers/js/lottoOfMaxRankAndMinRank.js "code"
