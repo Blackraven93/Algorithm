@@ -2,4 +2,6 @@
 :v: Stack my algorithm skill!!
 
 
-[Google](https://google.com, "google link")
+Link: [Google][googlelink]
+
+[googlelink]: https://google.com "Go google"
