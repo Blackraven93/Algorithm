@@ -1,20 +1,51 @@
-let input = require("fs")
+// 주소 /dev/stdin
+
+const [n, ...arr] = require("fs")
   .readFileSync("./test/test.txt")
   .toString()
-  .split("\r\n");
+  .trim()
+  .split(/\s+/);
 
-const example = input.map((element) => parseInt(element));
+const length = parseInt(n);
 
-const length = example.shift();
+// Implement Bubble sort
+const numbers = arr.map((element) => parseInt(element));
 
-console.log(length, example);
+for (let i = 0; i < length; i++) {
+  let pastArr = [...numbers];
+  numbers.map((element, index) => {
+    numbers[index + 1] < numbers[index] &&
+      ([numbers[index], numbers[index + 1]] = [
+        numbers[index + 1],
+        numbers[index],
+      ]);
+  });
+  if (numbers === pastArr) break;
+  console.log(numbers);
+}
 
-example.map((element, index) => {
-  example[index + 1] < example[index] &&
-    ([example[index], example[index + 1]] = [
-      example[index + 1],
-      example[index],
-    ]);
-});
+numbers.map((e) => console.log(e));
 
-console.log(example);
+// Implement Selection sort
+
+// for (let count = 0; count < length - 1; count++) {
+//   let minValue;
+//   let pastArr = [...numbers];
+//   for (let i = 0; i + count + 1 < length; i++) {
+//     if (!minValue) {
+//       numbers[i + count] > numbers[i + count + 1]
+//         ? (minValue = numbers[i + count + 1])
+//         : (minValue = numbers[i + count]);
+//     } else {
+//       numbers[i + count] > numbers[i + count + 1]
+//         ? numbers[i + count + 1] < minValue &&
+//           (minValue = numbers[i + count + 1])
+//         : numbers[i + count] < minValue && (minValue = numbers[i + count]);
+//     }
+//   } // 배열을 한번 다 돌았을 대 최소 값
+//   let minIndex = numbers.lastIndexOf(minValue);
+//   numbers[minIndex] === numbers[count] ||
+//     ([numbers[count], numbers[minIndex]] = [numbers[minIndex], numbers[count]]);
+
+//   console.log(count);
+// }
