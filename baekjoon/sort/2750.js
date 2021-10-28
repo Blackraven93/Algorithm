@@ -46,6 +46,6 @@ numbers.map((e) => console.log(e));
 //   let minIndex = numbers.lastIndexOf(minValue);
 //   numbers[minIndex] === numbers[count] ||
 //     ([numbers[count], numbers[minIndex]] = [numbers[minIndex], numbers[count]]);
-
+// 중복값 해결 어떻게 할지 생각해볼 것
 //   console.log(count);
 // }
