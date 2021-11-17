@@ -8,6 +8,11 @@
     - 재귀 호출(하나의 조각)
       - 기저 사례 확인
     - 종료 조건을 먼저 선언할 것
+    - 재귀는 언제 사용하는가?
 
 
 https://falsy.me/%EC%9B%B9%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC-1-emscripten-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/
+
+자료구조: https://www.geeksforgeeks.org/data-structures/ 
+
+알고리즘: https://www.geeksforgeeks.org/fundamentals-of-algorithms/ 

@@ -17,32 +17,59 @@ const nestedLoop = (n) => {
   return count;
 };
 
-console.log(nestedLoop(10));
+// console.log(nestedLoop(10));
 
-let count2 = 0;
-let exe = 0;
-const nestedLoop2 = (n) => {
-  exe++;
-  for (let i = 0; i < n; i++) {
-    count2++;
-  }
-  if (exe === 5) return count2;
-  else return nestedLoop2(n);
-};
+// n개의 원소로 이루어진 정렬된 배열 Arr에 대하여
+// m개를 뽑는 모든 조합을 배열로 출력하기
 
-console.log(nestedLoop2(10));
+const arr = [1, 2, 3, 4, 5, 6, 7, 8];
 
-const pick = (n, picked, toPick) => {
-  if (toPick === 0) return picked;
-  let smallest = picked;
-  if (picked.isArray() === true && picked === []) {
-    smallest = 0;
-  } else {
-    smallest = picked.pop() + 1;
+// const combination = (arr, m) => {
+//   while (m > -1) {
+//     for (let i = 0; i < arr.length; i++) {
+//       if (i <= m) continue;
+//       else console.log(arr[m], arr[i]);
+//     }
+//     m--;
+//   }
+//   return "끝";
+// };
+
+// console.log(combination(arr, 5));
+
+function getAllCombinations(arr, m) {
+  const combinations = [];
+  const picked = [];
+  const used = [];
+  for (item of arr) used.push(0);
+
+  function find(picked) {
+    if (picked.length === m) {
+      const rst = [];
+      for (let i of picked) {
+        rst.push(arr[i]);
+      }
+      combinations.push(rst);
+      return;
+    } else {
+      let start = picked.length ? picked[picked.length - 1] + 1 : 0;
+      for (let i = start; i < arr.length; i++) {
+        if (i === 0 || arr[i] !== arr[i - 1] || used[i - 1]) {
+          picked.push(i);
+          used[i] = 1;
+          find(picked);
+          picked.pop();
+          used[i] = 0;
+        }
+      }
+    }
   }
-  for (let i = smallest; i < n; i++) {
-    picked.push(i);
-    pick(n, picked, toPick - 1);
-    picked.pop();
-  }
-};
+  find(picked);
+  return combinations;
+}
+
+console.log(getAllCombinations(arr, 2));
+
+const arr2 = [];
+
+console.log(arr2[-1] + 1);

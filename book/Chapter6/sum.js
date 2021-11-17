@@ -36,3 +36,16 @@ const f2 = (n) => {
 console.log(f2(10));
 
 // 재귀는 하나의 조각?
+
+// 꼬리 재귀
+const yesTail = (n, ans) => {
+  if (n === 1) return ans + 1;
+  return yesTail(n - 1, ans + n);
+};
+
+const noTail = (n) => {
+  if (n === 1) return 1;
+  return n + noTail(n - 1);
+};
+
+console.log(yesTail(10, 0));
