@@ -22,3 +22,7 @@ const solution = (n) => {
 };
 
 solution(3).map((e) => console.log(e));
+
+// 구현 능력이 너무 약한데..?
+// by에 대한 개념에 왜 익숙하지 않은가?
+// 변하는 수는 모두 변수
