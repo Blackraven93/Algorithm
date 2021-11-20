@@ -1,5 +1,13 @@
 // 1001
-let n = Number(require("fs").readFileSync("./dev/stdin"));
+// 한줄
+let n = require("fs").readFileSync("./dev/stdin").toString().trim();
+// buffer 꼭 string으로 전환하기
+// 여러줄
+// let input = require("fs")
+//   .readFileSync("./dev/stdin")
+//   .toString()
+//   .split("\n")
+//   .map((e) => e.trim());
 
 // .toString()
 // .split(/\n+/)
@@ -150,13 +158,13 @@ let n = Number(require("fs").readFileSync("./dev/stdin"));
 
 // console.time("string");
 
-let answer = "";
+// let answer = "";
 
-for (let i = n; i > 0; i--) {
-  answer += i + "\n";
-}
+// for (let i = n; i > 0; i--) {
+//   answer += i + "\n";
+// }
 
-console.log(answer.trimEnd());
+// console.log(answer.trimEnd());
 // console.timeEnd("string");
 // string: 11.010s
 
@@ -167,3 +175,138 @@ console.log(answer.trimEnd());
 // console.timeEnd("array");
 // array: 49.029s
 // 2741 N찍기 2742
+
+// 2753 윤년 1분
+
+// const check = (year) => {
+//   if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+//     return 1;
+//   } else {
+//     return 0;
+//   }
+// };
+
+// console.log(check(n));
+
+// 2884 알람 시계 6분 30 + 10분 34초
+// 아예 시간을 변환 해보려고 했다.
+// 근데 이게 조금 더 간단할 것 같다.
+// hour = parseInt(hour);
+// time = parseInt(time);
+
+// if (45 > time) {
+//   if (hour !== 0) {
+//     hour -= 1;
+//     time = time + 60 - 45;
+//   } else {
+//     hour = 23;
+//     time = time + 60 - 45;
+//   }
+// } else {
+//   time = time - 45;
+// }
+
+// console.log(hour, time);
+
+// 2908 상수 9분 34초
+// 거꾸로지 정렬이 아니야! sort 사용 X
+
+// const convert = (number) => {
+//   number = number.split("")[(number[0], number[1], number[2])] = [
+//     number[2],
+//     number[1],
+//     number[0],
+//   ];
+
+//   return parseInt(number.join(""));
+// };
+
+// convert(a) > convert(b) ? console.log(convert(a)) : console.log(convert(b));
+
+// 2920 음계 13분 50초
+
+// 판별 프로그램
+
+// const cMajor = [c, d, e, f, g, a, b, C];
+
+// let temp = [...notes];
+
+// if (JSON.stringify(temp.sort((a, b) => a - b)) === JSON.stringify(notes)) {
+//   console.log("ascending");
+// } else if (
+//   JSON.stringify(temp.sort((a, b) => b - a)) === JSON.stringify(notes)
+// ) {
+//   console.log("descending");
+// } else {
+//   console.log("mixed");
+// }
+
+// 3052 나머지 22분 => input 문제
+
+// console.log(input);
+
+// let remainder = new Set();
+// for (let i of input) {
+//   remainder.add(i % 42);
+// }
+// console.log(remainder);
+// let remainderArr = [...remainder];
+
+// console.log(remainderArr.length);
+
+// 8958 OX 퀴즈 9분 20초
+
+// let scoreArr = [];
+
+// for (let i = 0; i < n; i++) {
+//   let oXArray = input[i].split("");
+//   let score = 0;
+//   let tempScore = 0;
+
+//   for (let j of oXArray) {
+//     if (j === "O") {
+//       tempScore++;
+//       score += tempScore;
+//     } else {
+//       tempScore = 0;
+//     }
+//   }
+
+//   scoreArr.push(score);
+// }
+
+// scoreArr.map((e) => console.log(e));
+
+// 9498 시험 성적 1분 30
+
+// const check = (n) => {
+//   if (n <= 100 && n >= 90) return "A";
+//   else if (n >= 80) return "B";
+//   else if (n >= 70) return "C";
+//   else if (n >= 60) return "D";
+//   else return "F";
+// };
+
+// console.log(check(n));
+
+// 10172
+// console.log(`|\\_/|
+// |q p|   /}
+// ( 0 )"""\\
+// |"^"\`    |
+// ||_/=\\\\__|`);
+
+// 10809 알파벳 찾기
+const arr = "abcdefghijklmnopqrstuvwxyz".split("");
+let numberArr = Array.from({ length: arr.length }, () => -1);
+
+arr.map((alpha) => {
+  n.split("").map((e, i) => {
+    if (alpha === e) {
+      numberArr[arr.indexOf(alpha)] === -1 &&
+        (numberArr[arr.indexOf(alpha)] = i);
+    }
+  });
+});
+
+console.log(...numberArr);
