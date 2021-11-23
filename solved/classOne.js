@@ -339,7 +339,7 @@ console.log(a % b);
 let [n, x] = conditions.split(/\s+/).map(e => parseInt(e))
 let numbers = arr.split(/\s+/).map(e => parseInt(e.trim()))
 let answer = []
-n이 arr 총 개수 x가 조건 수
+// n이 arr 총 개수 x가 조건 수
 
 for (const i of numbers) {
   i < x && answer.push(i)
