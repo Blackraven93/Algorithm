@@ -1,17 +1,18 @@
 // 한줄
-// let [x, y, w, h] = require("fs")
-//   .readFileSync("./dev/stdin")
-//   .toString()
-//   .trim()
-//   .split(" ")
-//   .map((e) => Number(e));
+// let x = parseInt(require("fs")
+//   .readFileSync("./dev/stdin"))
+  // .toString()
+  // .trim()
+  // .split(" ")
+  // .map((e) => Number(e));
+
 
 // 여러 줄
-let numbers = require("fs")
+let [...inputs] = require("fs")
   .readFileSync("./dev/stdin")
   .toString()
   .trim()
-  .split("\n")
+  .split("\n").map(e => e.trim().split(' ').map(el => parseInt(el)))
 
 // 1085 직사각형에서 탈출
 // let row = 0;
@@ -71,4 +72,116 @@ let numbers = require("fs")
 // }
 
 // answerArr.map(e => console.log(e))
+
+
+// 11650 좌표 정렬하기
+
+
+
+// let count = parseInt(n);
+// let arr = inputs.map(e => e.trim().split(' '))
+
+// 좌표가 X좌표가 증가하는 순으로, x좌표가 같으면 Y좌표가 증가하는 순서로 정렬한 다음 출력하는 프로그램을 작성
+
+// arr.forEach(e => {
+//   arrX.push(e[0])
+//   arrY.push(e[1])
+// })
+
+// arrX = arrX.map(e => parseInt(e))
+// arrY = arrY.map(e => parseInt(e))
+
+
+// for (let i = 0; i < count; i++) {
+//   let minX = arrX[i]
+//   let minY = arrY[i]
+//   for (let j = i+1; j < count; j++) {
+//     // 이전 value가 비교 value보다 같거나 크냐??
+//     if (arrX[i] >= arrX[j]) {
+//       // 같을 때
+//       if (arrX[i] === arrX[j]) {
+//         // Y 비교
+//         if (arrY[i] > arrY[j]) {
+//           [minX, minY] = [arrX[j], arrY[j]]
+//         }
+//       // 클 때
+//       } else {
+//         [minX, minY] = [arrX[j], arrY[j]]
+//       }
+//     }
+//   }
+
+//   // [arrX[i], arrY[i]] = [minX, minY]
+//   console.log(arrX[i], minX);
+  
+//   arrX[arrX.indexOf(minX)] = arrX[i]
+//   arrX[i] = minX
+
+// }
+
+// bubble sort 시간초과
+// arr = arr.map(e => e.map(el => parseInt(el)))
+// let noSwap
+// // // 정렬 공부를 했을 때 (버블정렬)
+// for (let i = arr.length-1; i > 0; i--) {
+//   noSwap = true
+//   for (let j = 0; j < i; j++) {
+//     if (arr[j][0] > arr[j+1][0]) {
+//       let temp = arr[j]
+//       arr[j] = arr[j+1]
+//       arr[j+1] = temp
+//       noSwap = false
+//     } else if (arr[j][0] === arr[j+1][0]) {}
+//       if (arr[j][1] > arr[j+1][1]) {
+//         let temp = arr[j]
+//         arr[j] = arr[j+1]
+//         arr[j+1] = temp
+//         noSwap = false
+//       }
+//   }
+//   if (noSwap) break
+// }
+
+// arr.forEach((e) => console.log(`${e[0]} ${e[1]}`))
+
+
+
+// console.time('Selection');
+
+// const selectionSort = (array) => {
+//   // 배열을 앞에서 부터 돈다
+// for (let i = 0; i < array.length; i++) {
+//   let minIndex = i;
+//   // i 보다 1큰 값으로 배열을 돈다
+//   for (let j = i + 1; j < array.length; j++) {
+//       // 시작하는 미니멈 인덱스 보다 작은 경우에
+//     if (array[minIndex][0] > array[j][0]) {
+//         // 최소 인덱스 값을 변수에 저장
+//       minIndex = j;
+//     } else if (array[minIndex][0] === array[j][0]) {
+//       if (array[minIndex][1] > array[j][1]) minIndex = j;
+//     }
+//   }
+//   // 포문을 한번 다 돌았는데 최소 값이 변했다면
+//   if (minIndex !== i) {
+//       // 변환
+//     let swap = array[minIndex];
+//     array[minIndex] = array[i];
+//     array[i] = swap;
+//   }
+// }
+// return array;
+// }
+
+// selectionSort(arr).forEach(e => console.log(`${e[0]} ${e[1]}`))
+
+// console.timeEnd('Selection');
+
+inputs.pop()
+for (const arr of inputs) {
+  arr.sort((a, b) => a - b)
+  let [x,y,z] = arr
+  x**2 + y**2 === z**2 ? console.log('right') : console.log('wrong');
+}
+
 
