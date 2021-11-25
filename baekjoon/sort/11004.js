@@ -31,3 +31,5 @@ const selectionSort = (n, k, array) => {
 
 
 console.log(selectionSort(n,k,array));
+
+// 시간 초과
