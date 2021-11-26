@@ -1,6 +1,7 @@
+// ReadLine 한줄
+
 // 한줄
-// let x = parseInt(require("fs")
-//   .readFileSync("./dev/stdin"))
+let n = parseInt(require("fs").readFileSync("./dev/stdin"));
   // .toString()
   // .trim()
   // .split(" ")
@@ -8,11 +9,11 @@
 
 
 // 여러 줄
-let [...inputs] = require("fs")
-  .readFileSync("./dev/stdin")
-  .toString()
-  .trim()
-  .split("\n").map(e => e.trim().split(' ').map(el => parseInt(el)))
+// let [...inputs] = require("fs")
+//   .readFileSync("./dev/stdin")
+//   .toString()
+//   .trim()
+//   .split("\n").map(e => e.trim().split(' ').map(el => parseInt(el)))
 
 // 1085 직사각형에서 탈출
 // let row = 0;
@@ -177,11 +178,52 @@ let [...inputs] = require("fs")
 
 // console.timeEnd('Selection');
 
-inputs.pop()
-for (const arr of inputs) {
-  arr.sort((a, b) => a - b)
-  let [x,y,z] = arr
-  x**2 + y**2 === z**2 ? console.log('right') : console.log('wrong');
+// inputs.pop()
+// for (const arr of inputs) {
+//   arr.sort((a, b) => a - b)
+//   let [x,y,z] = arr
+//   x**2 + y**2 === z**2 ? console.log('right') : console.log('wrong');
+// }
+
+
+// 11050 이항계수
+
+// const factorial = (n) => {
+//   // n이 === 1이 아니라 0이어야함.. 1시간 걸림 ㅠㅠ
+//   if (n === 0) return 1
+//   else return n * factorial(n-1) 
+// }
+
+// const combination = (n, k) => {
+//   return factorial(n) / (factorial(k) * (factorial(n-k)))
+// }
+
+// console.log(combination(n, k));
+
+
+// 2231 분해합
+
+// n의 분해합은 n과 n을 이루는 각 자리수의 합
+// 
+
+// 245와 2 4 5의 합??
+
+// 자연수 M = 245
+// 분해합 N = 256
+
+// 216을 줬다는 건가?
+// 이거의 역은 어떻게 구현하지?
+// N = M + M.toString().split('').reduce((cur, pre) =>cur + pre)
+
+const answerArr = [];
+
+const divideSum = (n) => {
+  // 1 <= N <= 1,000,000
+  for (let i = 1; i < n; i++) {
+    n === (i + parseInt(i.toString().split('').reduce((previous, current) => parseInt(previous) + parseInt(current)))) && answerArr.push(i)
+  }
+  // 생성자가 없는 경우에는 0을 출력한다.
+  if (answerArr.length === 0) return 0;
+  else return answerArr
 }
-
-
+divideSum(n) !== 0 ? console.log(Math.min(...divideSum(n))) : console.log(0);

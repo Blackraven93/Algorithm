@@ -29,6 +29,7 @@ const quickSort = (array) => {
 }
 ```
 
+<hr/>
 
 ### In place
 ```javascript
