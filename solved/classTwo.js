@@ -1,12 +1,16 @@
 // ReadLine 한줄
 
 // 한줄
-let n = parseInt(require("fs").readFileSync("./dev/stdin"));
-  // .toString()
-  // .trim()
-  // .split(" ")
-  // .map((e) => Number(e));
-
+let [a, b, v] = require("fs")
+  .readFileSync("./dev/stdin")
+  .toString()
+  .trim()
+  .split(" ")
+  .map((e) => parseInt(e));
+// .toString()
+// .trim()
+// .split(" ")
+// .map((e) => Number(e));
 
 // 여러 줄
 // let [...inputs] = require("fs")
@@ -50,7 +54,6 @@ let n = parseInt(require("fs").readFileSync("./dev/stdin"));
 //   }
 // }
 
-
 // 1259 팰린드롬수
 // numbers.pop()
 
@@ -74,10 +77,7 @@ let n = parseInt(require("fs").readFileSync("./dev/stdin"));
 
 // answerArr.map(e => console.log(e))
 
-
 // 11650 좌표 정렬하기
-
-
 
 // let count = parseInt(n);
 // let arr = inputs.map(e => e.trim().split(' '))
@@ -91,7 +91,6 @@ let n = parseInt(require("fs").readFileSync("./dev/stdin"));
 
 // arrX = arrX.map(e => parseInt(e))
 // arrY = arrY.map(e => parseInt(e))
-
 
 // for (let i = 0; i < count; i++) {
 //   let minX = arrX[i]
@@ -114,7 +113,7 @@ let n = parseInt(require("fs").readFileSync("./dev/stdin"));
 
 //   // [arrX[i], arrY[i]] = [minX, minY]
 //   console.log(arrX[i], minX);
-  
+
 //   arrX[arrX.indexOf(minX)] = arrX[i]
 //   arrX[i] = minX
 
@@ -144,8 +143,6 @@ let n = parseInt(require("fs").readFileSync("./dev/stdin"));
 // }
 
 // arr.forEach((e) => console.log(`${e[0]} ${e[1]}`))
-
-
 
 // console.time('Selection');
 
@@ -185,13 +182,12 @@ let n = parseInt(require("fs").readFileSync("./dev/stdin"));
 //   x**2 + y**2 === z**2 ? console.log('right') : console.log('wrong');
 // }
 
-
 // 11050 이항계수
 
 // const factorial = (n) => {
 //   // n이 === 1이 아니라 0이어야함.. 1시간 걸림 ㅠㅠ
 //   if (n === 0) return 1
-//   else return n * factorial(n-1) 
+//   else return n * factorial(n-1)
 // }
 
 // const combination = (n, k) => {
@@ -200,11 +196,10 @@ let n = parseInt(require("fs").readFileSync("./dev/stdin"));
 
 // console.log(combination(n, k));
 
-
 // 2231 분해합
 
 // n의 분해합은 n과 n을 이루는 각 자리수의 합
-// 
+//
 
 // 245와 2 4 5의 합??
 
@@ -215,15 +210,40 @@ let n = parseInt(require("fs").readFileSync("./dev/stdin"));
 // 이거의 역은 어떻게 구현하지?
 // N = M + M.toString().split('').reduce((cur, pre) =>cur + pre)
 
-const answerArr = [];
+// const answerArr = [];
 
-const divideSum = (n) => {
-  // 1 <= N <= 1,000,000
-  for (let i = 1; i < n; i++) {
-    n === (i + parseInt(i.toString().split('').reduce((previous, current) => parseInt(previous) + parseInt(current)))) && answerArr.push(i)
-  }
-  // 생성자가 없는 경우에는 0을 출력한다.
-  if (answerArr.length === 0) return 0;
-  else return answerArr
-}
-divideSum(n) !== 0 ? console.log(Math.min(...divideSum(n))) : console.log(0);
+// const divideSum = (n) => {
+//   // 1 <= N <= 1,000,000
+//   for (let i = 1; i < n; i++) {
+//     n === (i + parseInt(i.toString().split('').reduce((previous, current) => parseInt(previous) + parseInt(current)))) && answerArr.push(i)
+//   }
+//   // 생성자가 없는 경우에는 0을 출력한다.
+//   if (answerArr.length === 0) return 0;
+//   else return answerArr
+// }
+// divideSum(n) !== 0 ? console.log(Math.min(...divideSum(n))) : console.log(0);
+
+// 2869 달팽이는 올라가고 싶다.
+
+// let count = 0;
+
+// const goUp = (a, b, v) => {
+//   v -= a;
+//   count += 1;
+//   if (v <= 0) {
+//     return count;
+//   } else {
+//     v += b;
+//     return goUp(a, b, v);
+//   }
+// };
+
+// console.log(goUp(a, b, v));
+
+// 1. v에서 a를 뺀다
+// 2. 만약에 v가 0이거나 0이하면 count에 +1을 하고 출ㄹ력
+// 3. v가 0보다 크면 v에 b를 더해주고 count + 1 을 해준다.
+// 4. 1~3번을 반복한다.
+
+// 공식으로 풀어보기
+console.log(Math.ceil((v - b) / (a - b)));
